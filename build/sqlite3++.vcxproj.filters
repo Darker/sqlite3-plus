@@ -13,5 +13,135 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\exceptions">
+      <UniqueIdentifier>{958ed897-d700-4930-88c3-687897828c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generic">
+      <UniqueIdentifier>{4efdbc8c-0e6b-4984-a610-8b3c81792b81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\internal">
+      <UniqueIdentifier>{a55a726b-1864-4aeb-88a2-6270b8154742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\internal">
+      <UniqueIdentifier>{7ec57692-86e6-4b18-a304-6996d10deff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\private">
+      <UniqueIdentifier>{d2178add-08e1-4a1d-bdc6-74cfe5276f4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\traits">
+      <UniqueIdentifier>{ed5ea610-608a-4dff-a17e-7d65bd618d28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\traits">
+      <UniqueIdentifier>{428e571a-358d-4d43-9f12-c891c455786f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\logging">
+      <UniqueIdentifier>{27dd2c73-c309-405f-8da7-021214455e42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\logging">
+      <UniqueIdentifier>{8ed3b45c-08be-46d2-b17f-ed40285c991e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\sqlite3++\Database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(Sqlite3Path)sqlite3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(Sqlite3Path)sqlite3ext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\flags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\ResultCode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\Statement.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\Result.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\NoCopy.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\internal\RawStatement.h">
+      <Filter>Header Files\internal</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\private\Database_Private.h">
+      <Filter>Source Files\private</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\traits\BindTraits.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\ResultRow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\templates.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\TemplateAssertFalse.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\SQLiteAssert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\exceptions\SQLiteError.h">
+      <Filter>Header Files\exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\traits\ReadTraits.h">
+      <Filter>Header Files\traits</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\StrUnowned.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\BytesUnowned.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\primitive_types.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\Finally.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\std_format_polyfill.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\generic\tuple_to_args.h">
+      <Filter>Header Files\generic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\logging\Logger.h">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\logging\ModuleLogger.h">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\logging\DummyLogger.h">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sqlite3++\logging\OstreamLogger.h">
+      <Filter>Header Files\logging</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\Database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(Sqlite3Path)sqlite3.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\exceptions\SQLiteError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\internal\RawStatement.cpp">
+      <Filter>Source Files\internal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\traits\BindTraits.cpp">
+      <Filter>Source Files\traits</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Statement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

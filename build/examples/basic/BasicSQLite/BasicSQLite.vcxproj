@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="CMAKE|Win32">
@@ -29,32 +29,32 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{12c97908-ae04-47b3-9d50-c27f9f67a08e}</ProjectGuid>
-    <RootNamespace>sqlite3</RootNamespace>
+    <ProjectGuid>{1eeba1e3-fe74-4fe3-a256-179dc1285d80}</ProjectGuid>
+    <RootNamespace>BasicSQLite</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -66,9 +66,6 @@
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='CMAKE|x64'">
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="$(Sqlite3Path) == ''">
-    <Sqlite3Path>$(MSBuildThisFileDirectory)..\src\sqlite3\sqlite-amalgamation-3360000\</Sqlite3Path>
-  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -76,48 +73,48 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="sqlite3build.props" />
+    <Import Project="..\..\..\sqlite3dependency.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="sqlite3build.props" />
+    <Import Project="..\..\..\sqlite3dependency.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="sqlite3build.props" />
+    <Import Project="..\..\..\sqlite3dependency.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="sqlite3build.props" />
+    <Import Project="..\..\..\sqlite3dependency.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CMAKE|Win32'">
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='CMAKE|x64'">
-    <OutDir>$(MSBuildThisFileDirectory)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</OutDir>
-    <IntDir>$(MSBuildThisFileDirectory)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)..\output\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\examples\</OutDir>
+    <IntDir>$(SolutionDir)..\tmp\$(Platform)_v$(PlatformToolsetVersion)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -125,14 +122,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include\sqlite3++\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -142,8 +136,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include\sqlite3++\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,22 +143,19 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include\sqlite3++\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib />
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -174,10 +163,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\include\sqlite3++\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -185,46 +172,14 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
-    <Lib />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\sqlite3++\generic\BytesUnowned.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\Finally.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\NoCopy.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\primitive_types.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\std_format_polyfill.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\StrUnowned.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\TemplateAssertFalse.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\tuple_to_args.h" />
-    <ClInclude Include="..\include\sqlite3++\internal\RawStatement.h" />
-    <ClInclude Include="..\include\sqlite3++\logging\DummyLogger.h" />
-    <ClInclude Include="..\include\sqlite3++\logging\Logger.h" />
-    <ClInclude Include="..\include\sqlite3++\logging\ModuleLogger.h" />
-    <ClInclude Include="..\include\sqlite3++\logging\OstreamLogger.h" />
-    <ClInclude Include="..\include\sqlite3++\Result.h" />
-    <ClInclude Include="..\include\sqlite3++\ResultCode.h" />
-    <ClInclude Include="..\include\sqlite3++\flags.h" />
-    <ClInclude Include="..\include\sqlite3++\Database.h" />
-    <ClInclude Include="..\include\sqlite3++\exceptions\SQLiteError.h" />
-    <ClInclude Include="..\include\sqlite3++\ResultRow.h" />
-    <ClInclude Include="..\include\sqlite3++\SQLiteAssert.h" />
-    <ClInclude Include="..\include\sqlite3++\Statement.h" />
-    <ClInclude Include="..\include\sqlite3++\generic\templates.h" />
-    <ClInclude Include="..\include\sqlite3++\traits\BindTraits.h" />
-    <ClInclude Include="..\include\sqlite3++\traits\ReadTraits.h" />
-    <ClInclude Include="..\src\private\Database_Private.h" />
+    <ClCompile Include="BasicSQLite.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\Database.cpp" />
-    <ClCompile Include="..\src\exceptions\SQLiteError.cpp" />
-    <ClCompile Include="..\src\internal\RawStatement.cpp" />
-    <ClCompile Include="..\src\Statement.cpp" />
-    <ClCompile Include="..\src\traits\BindTraits.cpp" />
-  </ItemGroup>
-  <ItemGroup Condition="Exists('$(Sqlite3Path)')">
-    <ClInclude Include="$(Sqlite3Path)sqlite3.h" />
-    <ClInclude Include="$(Sqlite3Path)sqlite3ext.h" />
-    <ClCompile Include="$(Sqlite3Path)sqlite3.c" />
+    <ProjectReference Include="..\..\..\sqlite3++.vcxproj">
+      <Project>{12c97908-ae04-47b3-9d50-c27f9f67a08e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
