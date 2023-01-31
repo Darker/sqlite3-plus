@@ -17,34 +17,35 @@ int main()
         -- Create table for the data
         CREATE TABLE IF NOT EXISTS "test" (
 	        "key"	TEXT NOT NULL UNIQUE,
-	        "data"	DOUBLE NOT NULL,
-          "int_num" INT
+	        "created" DATETIME,
+          "updated" DATETIME,
+          "quantity" INT NOT NULL DEFAULT 0,
+          "quantity_type" SMALLINT DEFAULT 0,
+
           --"lastread" INTEGER NOT NULL DEFAULT 0,
 	        --PRIMARY KEY("key")
         );
         )SQL");
   sqlitepp::Statement<> teststmt(R"SQL(
-        INSERT INTO test (key, data, int_num)
-        VALUES(?, ?, ?)
-        )SQL", &db);
-
-  //teststmt.execute(
-  //  //[](std::tuple<>&)
-  //  []()
-  //  {
-  //    return true;
-  //  },
-  //  "test_name",
-  //  0.05,
-  //  22
-  //);
+        INSERT INTO test (key, quantity)
+        VALUES("ddd", 0)
+        )SQL");
+  teststmt.Init(&db);
+  teststmt.execute(
+    []()
+    {
+      return true;
+    }
+  );
 
   double readDouble;
   int readInt;
   std::string readStr;
   sqlitepp::Statement<double, int, sqlitepp::StrUnowned> readstmt(R"SQL(
         SELECT data, int_num, key FROM test WHERE key = ?
-        )SQL", &db);
+        )SQL");
+
+  readstmt.Init(&db);
 
   readstmt.execute(
     [&readDouble, &readInt, &readStr](double rdbl, int rint, sqlitepp::StrUnowned rstr)

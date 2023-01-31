@@ -74,13 +74,14 @@ public:
   // Callback to handle each returned row, rows will be supplied as long as they are available and callback returns true
   using RowCallback = std::function<bool(ReadHelper&)>;
 
-  RawStatement(const std::string& query, Database* db, PrepareFlags flags = PrepareFlags::NONE);
+  RawStatement(const std::string& query, PrepareFlags flags = PrepareFlags::NONE);
   ~RawStatement();
 
   void Execute(const RowCallback& rowHandler);
 
   BindHelper& getBinder() { return _binder; }
   void Init();
+  void SetDb(Database* db);
 protected:
   struct Private;
   std::unique_ptr<Private> _private;

@@ -16,10 +16,10 @@ struct RawStatement::Private
   sqlite3_stmt* statement = nullptr;
 };
 
-RawStatement::RawStatement(const std::string& query, Database* db, PrepareFlags flags)
+RawStatement::RawStatement(const std::string& query,PrepareFlags flags)
   : _private(new Private)
   , _query(query)
-  , _db(db)
+  , _db(nullptr)
   , _flags(flags)
   , _binder(*this)
 {}
@@ -88,6 +88,15 @@ void RawStatement::Init()
   }
 }
 
+void RawStatement::SetDb(Database* db)
+{
+  if (_db != nullptr && db != _db)
+  {
+    throw SQLiteError("Tried to set database to raw statement when already set.");
+  }
+  this->_db = db;
+}
+
 //void RawStatement::Execute()
 //{
 //
@@ -99,7 +108,7 @@ void RawStatement::BindHelper::Bind(int intval)
   sqlite3_bind_int(_stmt._private->statement, ++index, intval);
 }
 
-void RawStatement::BindHelper::Bind(__int64 intval)
+void RawStatement::BindHelper::Bind(std::int64_t intval)
 {
   bindSanityCheck();
   sqlite3_bind_int64(_stmt._private->statement, ++index, intval);

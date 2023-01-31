@@ -24,11 +24,19 @@ public:
   using RowHandler = std::function<bool(TResults...)>;
   //using RowHandler = std::function<bool(std::tuple<TResults...>&)>;
 
-  Statement(const std::string& query, Database* db);
+  Statement(const std::string& query);
+
+  void Init(Database* db);
 
   //! Executes the statement using given values
   template <typename... TValRest>
   void execute(const RowHandler& handler, TValRest... values);
+
+protected:
+  //! Binds a value to the statement at a current offset
+  //! It is your responsibility to bind the values in the correct order
+  template <typename TValue>
+  void bindValue(const TValue& value);
 
   //! Binds values to a prepared statement, after this the statement may be executed
   template <typename... TValRest>
@@ -40,12 +48,6 @@ public:
   //! Provides pointer to the implementation of raw access. Use with caution, or ideally not at all
   RawStatement& getRaw() { return *raw; }
   const RawStatement& getRaw() const { return *raw; }
-
-protected:
-  //! Binds a value to the statement at a current offset
-  //! It is your responsibility to bind the values in the correct order
-  template <typename TValue>
-  void bindValue(const TValue& value);
 private:
   Database* db;
   std::unique_ptr<RawStatement> raw = nullptr;
@@ -53,10 +55,15 @@ private:
 };
 
 template<typename ...TResults>
-Statement<TResults...>::Statement(const std::string& query, Database* db)
-  : db(db)
-  , raw(new RawStatement(query, db))
+Statement<TResults...>::Statement(const std::string& query)
+  : db(nullptr)
+  , raw(new RawStatement(query))
 {
+}
+template<typename ...TResults>
+void Statement<TResults...>::Init(Database* db)
+{
+  raw->SetDb(db);
 }
 //template <typename... TResults>
 //void Statement<TResults...>::Statement(const std::string& query, Database* db)

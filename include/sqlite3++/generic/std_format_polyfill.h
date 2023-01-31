@@ -5,7 +5,7 @@
 //#define __clang_minor__ 0
 //#define __clang_patchlevel__ 8
 
-#if _MSC_VER >= 1930
+#ifdef __cpp_lib_format
 #include <format>
 #else
 #include <string>

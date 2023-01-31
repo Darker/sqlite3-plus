@@ -1,16 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(SQLITE++ VERSION 0.1 LANGUAGES CXX)
+project(SQLITE++ VERSION 0.1 LANGUAGES CXX C)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(SQLITE3_HOME "src/sqlite3/sqlite-amalgamation-3360000")
+set(SQLITE3_CORE_C "${SQLITE3_HOME}/sqlite3.c")
 
-file(GLOB helloworld_SRC "src/**.cpp")
+# set_source_files_properties(SQLITE3_CORE_C PROPERTIES LANGUAGE CXX )
+
+file(GLOB sqlitepp_SRC "src/**.cpp")
 add_library( sqlite3++ STATIC
-    ${helloworld_SRC}
-    "${SQLITE3_HOME}/sqlite3.c"
+    ${SQLITE3_CORE_C}
+    ${sqlitepp_SRC}
 )
-target_include_directories( sqlite3++ PRIVATE include/sqlite3++ INTERFACE include PUBLIC ${SQLITE3_HOME} )
+target_include_directories( sqlite3++ PRIVATE include/sqlite3++ INTERFACE include PRIVATE ${SQLITE3_HOME} )
 
