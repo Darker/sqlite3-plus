@@ -1,12 +1,12 @@
 #pragma once
-#include "flags.h"
-#include "generic/NoCopy.h"
-#include "generic/StrUnowned.h"
-#include "exceptions/SQLiteError.h"
+#include "../flags.h"
+#include "../generic/NoCopy.h"
+#include "../generic/StrUnowned.h"
+#include "../exceptions/SQLiteError.h"
 
 #include <string>
 #include <memory>
-#include "generic/std_format_polyfill.h"
+#include "../generic/std_format_polyfill.h"
 #include <functional>
 #include <cstdint>
 

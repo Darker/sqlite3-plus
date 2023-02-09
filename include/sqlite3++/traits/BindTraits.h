@@ -6,6 +6,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <string_view>
 
 namespace sqlitepp
 {
@@ -23,6 +24,15 @@ template <>
 struct BindTraits<std::string>
 {
   static void BindValueToStatement(RawStatement::BindHelper& binder, const std::string& value) { binder.Bind(value.data(), value.size()); }
+};
+
+template <>
+struct BindTraits<std::string_view>
+{
+  static void BindValueToStatement(RawStatement::BindHelper& binder, const std::string_view& value)
+  {
+    binder.Bind(value.data(), value.size());
+  }
 };
 
 template <>
