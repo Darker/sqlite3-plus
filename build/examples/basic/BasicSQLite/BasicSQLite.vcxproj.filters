@@ -18,5 +18,8 @@
     <ClCompile Include="BasicSQLite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HasKvPairs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

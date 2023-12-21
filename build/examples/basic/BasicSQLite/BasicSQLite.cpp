@@ -6,7 +6,7 @@
 #include <sqlite3++/Statement.h>
 #include <sqlite3++/logging/OstreamLogger.h>
 
-int main()
+int ma_in()
 {
   sqlitepp::OstreamLoggerBorrowed logger(std::cout);
 
@@ -61,6 +61,8 @@ int main()
     "test_name"
   );
   logger.info("Read values: double={}, int={} for key: {}", readDouble, readInt, readStr);
+
+  return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

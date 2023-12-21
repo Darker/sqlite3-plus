@@ -175,6 +175,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicSQLite.cpp" />
+    <ClCompile Include="HasKvPairs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\sqlite3++.vcxproj">
